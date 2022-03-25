@@ -21,22 +21,22 @@ namespace Main.Scripts
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        HandleTouch(10, Input.mousePosition, TouchPhase.Began);
+                        HandleTouch(Input.mousePosition, TouchPhase.Began);
                     }
 
                     if (Input.GetMouseButton(0))
                     {
-                        HandleTouch(10, Input.mousePosition, TouchPhase.Moved);
+                        HandleTouch(Input.mousePosition, TouchPhase.Moved);
                     }
 
                     if (Input.GetMouseButtonUp(0))
                     {
-                        HandleTouch(10, Input.mousePosition, TouchPhase.Ended);
+                        HandleTouch(Input.mousePosition, TouchPhase.Ended);
                     }
                 }
                 else
                 {
-                    HandleTouch(Input.touches[0].fingerId, Input.touches[0].position, Input.touches[0].phase);
+                    HandleTouch(Input.touches[0].position, Input.touches[0].phase);
                 }
             }
             else
@@ -45,7 +45,7 @@ namespace Main.Scripts
             }
         }
 
-        private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
+        private void HandleTouch(Vector3 touchPosition, TouchPhase touchPhase)
         {
             var moveDelta = new Vector2(touchPosition.x / Screen.currentResolution.width,
                 touchPosition.y / Screen.currentResolution.width);
